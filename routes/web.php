@@ -35,7 +35,6 @@ Route::get('/addcategory','App\Http\Controllers\AdminController@addcategory')->n
 Route::get('/addproduct','App\Http\Controllers\AdminController@addproduct')->name('add.product');
 Route::get('/addslider','App\Http\Controllers\AdminController@addslider')->name('add.slider');;
 
-Route::get('/products','App\Http\Controllers\ProductController@product');
 Route::get('/sliders','App\Http\Controllers\SliderController@slider');
 Route::get('/orders','App\Http\Controllers\OrderController@order');
 
@@ -46,6 +45,8 @@ Route::post('update/category/{id}','App\Http\Controllers\CategoryController@upda
 Route::get('delete/category/{id}','App\Http\Controllers\CategoryController@deleteCategory')->name('delete.category');
 
 
+Route::get('/products','App\Http\Controllers\ProductController@product');
+Route::post('save/product','App\Http\Controllers\ProductController@saveproduct')->name('save.product');
 
 
 

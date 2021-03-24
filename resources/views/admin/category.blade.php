@@ -44,7 +44,7 @@
                                         <td>{{$category->category_name}}</td>
 {{----}}
                                         <td>
-                                           <a  class="btn btn-outline-primary" href="{{route('edit.category',['id' => $category->id])}}">View</a>
+                                           <a  class="btn btn-outline-primary" href="#" data-toggle="modal" data-target="#myModal">View</a>
                                             <button class="btn btn-outline-success" onclick="window.location='{{url('/edit/category/'.$category->id)}}'" >Edit</button>
                                             <a href="/delete/category/{{$category->id}}" class="btn btn-outline-danger" id="delete" >Delete</a>
                                         </td>
@@ -73,9 +73,29 @@
 
         <!-- partial -->
     </div>
+
+    <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          
+        </div>
+        <div class="modal-body">
+          <p>Name : {{ $category->category_name }}</p>
+          
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
 @endsection
 
 @section('script')
-    <script src="backend/js/data-table.js"></script>
+    <script src="{{asset('backend/js/data-table.js')}}"></script>
     <!-- End custom js for this page-->
 @endsection
