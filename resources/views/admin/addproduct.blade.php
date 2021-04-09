@@ -10,7 +10,7 @@
             <div class="card">
                 @if(Session::has('success'))
                 <div class="alert alert-success">
-                    <span class="text-danger">{{Session::get('success')}}</span>
+                    <span class="text-warning">{{Session::get('success')}}</span>
                 </div>
             @endif
             @if(Session::has('wrong'))
@@ -20,7 +20,7 @@
             @endif
                 <div class="card-body">
                     <h4 class="card-title">Add product</h4>
-                    <form class="cmxform" id="commentForm" method="post" action="{{route('save.product')}}" enctype="multipart">
+                    <form class="cmxform" id="commentForm" method="post" action="{{route('save.product')}}" enctype="multipart/form-data">
                         @csrf
                         <fieldset>
                             <div class="form-group">
@@ -35,16 +35,16 @@
                                 <label for="category">Product category </label>
                                 <select name="category" id="category" class="form-control">
                                     <option value="">Select Category</option>
-                                    <option value="">Small</option>
-                                    <option value="">Large</option>
+                                    @foreach($categories as $category)
+                                    <option value="{{$category->id}}">{{$category->category_name}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="image">Product Image </label>
-                                <input id="image" class="form-control" name="image"  type="file" required>
+                                <input id="image" class="form-control" name="image"  type="file">
                             </div>
-                            <label for="status">Product status </label>
-                            <input id="status" class="" name="status"  type="checkbox"><br>
+
                             <input class="btn btn-warning" type="submit" value="Save">
                         </fieldset>
                     </form>

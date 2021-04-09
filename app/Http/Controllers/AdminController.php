@@ -16,7 +16,8 @@ class AdminController extends Controller
     }
 
     public function addproduct(){
-        return view('admin.addproduct');
+        $categories= Category::All();
+        return view('admin.addproduct')->with('categories',$categories);
 
     }
 
